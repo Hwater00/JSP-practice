@@ -1,0 +1,15 @@
+INDEX VERSION 1.134
+C:\DevSoo\javaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1796879346.index
+\calculator\src\main\java
+C:\DevSoo\javaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1487123134.index
+\jwbook\src\main\java
+C:\DevSoo\javaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\799310376.index
+\jwbook\src\main\java
+C:\DevSoo\javaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2740370173.index
+\calculator\src\main\java
+C:\DevSoo\javaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2359434997.index
+\calculator\src\main\java
+C:\DevSoo\javaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2504049282.index
+\jwbook\src\main\java
+C:\DevSoo\javaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\471663460.index
+\calculator\src\main\java

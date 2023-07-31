@@ -1,0 +1,72 @@
+package ch05.calculator;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class CalcServlet
+ */
+@WebServlet("/calc")
+public class CalcServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CalcServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 첫번째 입력 필드 이름
+		int n1= Integer.parseInt(request.getParameter("n1"));
+		
+		// 두 번째 입력 필드 이름
+		int n2= Integer.parseInt(request.getParameter("n2"));
+		
+		//연산자 값
+		String op = request.getParameter("op");
+		// 연산결과 반환
+		
+		long result=0;
+		switch(request.getParameter("op")) {
+		case "+": result= n1+n2; break;
+		case "-": result= n1-n2; break;
+		case "*": result= n1*n2; break;
+		case "/":result = n1/n2; break;
+		
+		}
+		
+		response.setContentType("text/html; charset=utf8");
+		PrintWriter out  = response.getWriter();
+		out.append("<!DOCTYPE html>\\r\\n\"\r\n"
+				+ "				+ \"<html>\\r\\n\"\r\n"
+				+ "				+ \"<head>\\r\\n\"\r\n"
+				+ "				+ \"<meta charset=\\\"UTF-8\\\">\\r\\n\"\r\n"
+				+ "				+ \"<title>Hello World</title>\\r\\n\"\r\n"
+				+ "				+ \"</head>\\r\\n\"\r\n"
+				+ "				+ \"<body>\\r\\n")
+		.append("<h2>result</h2>"+result)
+		.append("</body>\r\n"
+				+ "</html>");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
