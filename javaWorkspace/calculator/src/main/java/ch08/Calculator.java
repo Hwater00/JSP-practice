@@ -1,4 +1,4 @@
-/*package ch08;
+package ch08;
 
 public class Calculator {
 	private int n1;
@@ -29,7 +29,7 @@ public class Calculator {
 		this.op = op;
 	}
 
-	public long calc() {
+	public long calc(int n12, int n22, String op2) {
 		long result=0;
 		switch(op) {
 		case "+": result= n1+n2; break;
@@ -41,4 +41,3 @@ public class Calculator {
 		return result;
 	}
 }
-*/
