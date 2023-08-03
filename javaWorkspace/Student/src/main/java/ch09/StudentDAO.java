@@ -1,5 +1,6 @@
 package ch09;
 
+import java.lang.System.Logger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,6 +12,7 @@ import java.util.List;
 
 
 public class StudentDAO {
+	
 	Connection conn = null;
 	PreparedStatement pstmt;
 	
@@ -20,6 +22,7 @@ public class StudentDAO {
 	public void open() {
 		try {
 			Class.forName(JDBC_DRIVER);
+			
 			conn = DriverManager.getConnection(JDBC_URL,"jwbook","1234");
 		}catch (Exception e) {
 			
@@ -31,6 +34,7 @@ public class StudentDAO {
 	public void close() {
 		try {
 			pstmt.close();
+			
 			conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
