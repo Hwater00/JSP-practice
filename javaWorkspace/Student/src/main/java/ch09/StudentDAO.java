@@ -43,7 +43,7 @@ public class StudentDAO {
 	}
 	public void insert(Student s) {
 		open();
-		String sql="INSERT INTO student(username,univ,birth,email) vlaue(?,?,?,?)";
+		String sql="INSERT INTO student(username,univ,birth,email) values(?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

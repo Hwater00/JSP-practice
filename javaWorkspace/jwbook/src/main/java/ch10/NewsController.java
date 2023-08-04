@@ -40,7 +40,8 @@ public class NewsController extends HttpServlet {
     }
     
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+		//request.setCharacterEncoding("utf-8");
+    	
 		String action = request.getParameter("action");
 		dao= new NewsDAO();
 		
@@ -94,7 +95,7 @@ public class NewsController extends HttpServlet {
     		    ctx.log("파일 저장 중 오류 발생: " + e.getMessage());
     		}
     		
-    		////
+    ////
     		
 //    		if(fileName != null && !fileName.isEmpty()) {
 //    			ctx.log("전달 파일명:"+fileName); 

@@ -1,9 +1,5 @@
 package ch10;
 
-/**
- * @author dinfree
- *
- */
 public class News {
 	private int aid;
 	private String title;

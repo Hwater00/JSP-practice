@@ -28,9 +28,13 @@ public class NewsDAO {
 		Connection conn = open();
 		List<News> newsList = new ArrayList<>();
 		
+		//String sql = "select aid, title, date as cdate from news"; 초가 나오지 않도록
 		String sql = "select aid, title, PARSEDATETIME(date,'yyyy-MM-dd HH:mm:ss.SSSSSS') as cdate from news";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
+		
+		
+		//auto close 인터페이슷 상속박아서 try(conn; pstmt; rs) 안에 close()가 필요한 부분을 넣어주면 된다.
 		
 		try(conn; pstmt; rs) {
 			while(rs.next()) {
