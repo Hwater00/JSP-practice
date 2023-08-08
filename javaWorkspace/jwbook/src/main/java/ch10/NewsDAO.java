@@ -29,7 +29,8 @@ public class NewsDAO {
 		List<News> newsList = new ArrayList<>();
 		
 		//String sql = "select aid, title, date as cdate from news"; 초가 나오지 않도록
-		String sql = "select aid, title, PARSEDATETIME(date,'yyyy-MM-dd HH:mm:ss.SSSSSS') as cdate from news";
+		String sql = "select aid, title, date as cdate from news";
+//		String sql = "select aid, title, PARSEDATETIME(date,'yyyy-MM-dd HH:mm:ss.SSSSSS') as cdate from news";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 		
@@ -53,7 +54,7 @@ public class NewsDAO {
 		Connection conn = open();
 		
 		News n = new News();
-		String sql = "select aid, title, img, PARSEDATETIME(date,'yyyy-MM-dd HH:mm:ss.SSSSSS') as cdate, content from news where aid=?";
+		String sql = "select aid, title, img, date AS cdate, content from news where aid=?";
 	
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, aid);

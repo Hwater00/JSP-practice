@@ -10,17 +10,18 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-@WebListener
+@WebListener // 컨테이너야! 내가 리스너 클래스야! 
 public class ListenerExam implements ServletContextListener, ServletContextAttributeListener, HttpSessionListener, HttpSessionAttributeListener {
-
+//ServletContextListener 톰캣의 시작 종료 이벤트 동작 리스너 인터페이스를 박음.
    
     public ListenerExam() {
       
     }
 
 
-    public void attributeAdded(ServletContextAttributeEvent event)  { 
-         event.getServletContext().log("ServlerContext 속성 추가:"+ event.getValue());
+    public void attributeAdded(ServletContextAttributeEvent event)  {  // 김길동 속성 추가-> ServletContext의 속성이 추가될 때 호출-> event에 값
+    	System.out.println(event); // 이벤트 객체가 매개변수
+         event.getServletContext().log("ServlerContext 속성 추가:"+ event.getValue()); // 속성의 값을 로깅
     }
 
     public void attributeReplaced(ServletContextAttributeEvent event)  { 
@@ -36,7 +37,7 @@ public class ListenerExam implements ServletContextListener, ServletContextAttri
     }
 
 	
-    public void contextInitialized(ServletContextEvent sce)  { 
+    public void contextInitialized(ServletContextEvent sce)  { // contextInitialized
         sce.getServletContext().log("ServletContext 시작됨");
    }
     
@@ -45,10 +46,11 @@ public class ListenerExam implements ServletContextListener, ServletContextAttri
     }
 
     
-    public void sessionCreated(HttpSessionEvent se)  { 
+    public void sessionCreated(HttpSessionEvent se)  {  // HttpSession
         se.getSession().getServletContext().log("섹션 생성됨:"+se.getSession().getId());
    }
 
+    
     public void attributeAdded(HttpSessionBindingEvent event)  { 
     	event.getSession().getServletContext().log("섹션 속성 추가:"+event.getValue());
     }

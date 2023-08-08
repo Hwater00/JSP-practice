@@ -24,7 +24,7 @@ public class ListenerTestServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public void init(ServletConfig config) throws ServletException {
-        super.init(config);
+        super.init(config); //init 메소드는 서블릿의 초기화 과정에서 호출
         sc= getServletContext();
  
     }
@@ -33,9 +33,12 @@ public class ListenerTestServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		sc.setAttribute("sname","김길동");
-		HttpSession s = request.getSession();
+		//HTTP GET 요청을 처리하는 부분입니다
+		sc.setAttribute("sname","김길동"); // sevletContext 객체(sc)에 속성이 추가되는 것이므로, ServletContextAttributeEvent 이벤트가 생성
+		HttpSession s = request.getSession(); // 세션 생성
 		s.setAttribute("cname", s.getId()+"세션 속성 저장");
+		// ServletContext에 'sname' 속성으로 "김길동"을 설정하고, 세션을 얻어와 'cname' 속성으로 세션 ID와 문자열을 설정합니다.
+		
 	}
 
 	/**
