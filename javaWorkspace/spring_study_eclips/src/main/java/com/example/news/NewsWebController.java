@@ -37,13 +37,15 @@ public class NewsWebController {
 	@PostMapping("/add")
 	public String addNews(@ModelAttribute News news, Model m, @RequestParam("file") MultipartFile file) {
 		try {
-			// 저장 파일 객체 생성
+			// 저장 파일 객체 생성 -> C드라이브 이미지 저장
 			File dest = new File(fdir+"/img/"+file.getOriginalFilename()); 
 			System.out.println(dest);
 			// 파일 저장
 			file.transferTo(dest);
 			
-			// News 객체에 파일 이름 저장
+			
+			
+			// News 객체에 파일 이름 저장 => H2 데이터베이스 저장
 			news.setImg("/img/"+dest.getName());
 			dao.addNews(news);
 		} catch (Exception e) {
